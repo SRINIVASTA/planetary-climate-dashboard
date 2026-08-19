@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 import urllib.request
 import io
-import requests
+import logging  # <--- ADD THIS LINE HERE TO FIX THE NAMEERROR
 import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
