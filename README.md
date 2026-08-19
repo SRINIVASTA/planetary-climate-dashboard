@@ -15,7 +15,9 @@ The baseline planetary thermal footprint is mapped using **Planck's Law**, deter
 
 $$B_\lambda(\lambda, T) = \frac{2hc^2}{\lambda^5 \left( e^{ \frac{hc}{\lambda k_B T} } - 1 \right)}$$
 
-Greenhouse gas absorption is resolved via the **Beer-Lambert Law**. The major $CO_2$ bending vibration mode at $15\ \mu\text{m}$ is modeled using a localized Gaussian line-shape cross-section to accurately capture out-of-band energy profiles:
+Greenhouse gas absorption is resolved via the **Beer-Lambert Law**. The major $CO_2$ bending vibration mode at $15\ \mu\text{m}$ is modeled using a localized Gaussian line-shape cross-section to accurately capture out-of-band energy profiles. 
+
+**Dynamic Coupling Update:** Instead of checking fixed temperatures, the engine now computes a real-time global warming anomaly ($\Delta T = (CO_{2,\text{predicted}} - CO_{2,\text{baseline}}) \times 0.1$) to dynamically shift the operational baseline:
 
 $$I_{\text{observed}}(\lambda) = I_{\text{surface}}(\lambda) \cdot e^{-\tau(\lambda)} + I_{\text{atmosphere}}(\lambda) \cdot (1 - e^{-\tau(\lambda)})$$
 
@@ -24,7 +26,7 @@ The ocean's capacity to retain greenhouse gases drops as water temperature rises
 
 $$k(T) = k_\theta \times \exp\left[ C \left(\frac{1}{T} - \frac{1}{T_\theta}\right) \right]$$
 
-The system calculates total mass shifts over an active upper ocean mixed layer volume ($V_{\text{ocean}} = 1.6 \times 10^{21}\text{ Liters}$), tracking the absolute outgassed carbon pool in **Gigatons (Gt)**.
+The system calculates total mass shifts over an active upper ocean mixed layer volume ($V_{\text{ocean}} = 1.6 \times 10^{21}\text{ Liters}$), tracking the absolute outgassed carbon pool in **Gigatons (Gt)**. The scatter coordinates slide downward dynamically along the curve as the user advances the forecast timeline.
 
 ### 3. Shortwave Solar Absorption & Ice Albedo (Graph 3)
 To balance the planetary energy budget, the cryosphere models non-linear ice-sheet decay through a continuous **logistic activation curve**:
@@ -35,7 +37,8 @@ $$\alpha_{\text{planetary}} = f_{\text{ice}} \cdot \alpha_{\text{ice}} + (1 - f_
 
 $$S_{\text{absorbed}} = S_0 \cdot (1 - \alpha_{\text{planetary}})$$
 
-As reflective ice ($\alpha = 0.75$) melts, it uncovers dark open ocean ($\alpha = 0.08$), causing solar energy absorption to spike from $\sim 244\text{ W/m}^2$ to over $\sim 298\text{ W/m}^2$.
+As the forecast year advances, rising temperatures induce cross-system forcing. This causes the plotted points to migrate down the reflectivity curve, tracking how dark open ocean ($\alpha = 0.08$) replaces reflective ice ($\alpha = 0.75$), driving an absorption spike over $\sim 298\text{ W/m}^2$.
+
 
 ---
 
