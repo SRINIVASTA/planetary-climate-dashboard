@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 import urllib.request
 import io
+import requests
 import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
