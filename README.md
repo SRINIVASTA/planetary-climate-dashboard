@@ -46,22 +46,35 @@ As the forecast year advances, rising temperatures induce cross-system forcing. 
 
 The dashboard incorporates a dual-layer Machine Learning pipeline:
 * **Predictive Forecasting (Regression):** A Scikit-Learn `PolynomialFeatures(degree=2)` wrapped inside a `LinearRegression` engine ingests the live historical NOAA data feed (from 1980 to the present) to project future carbon paths out to the year 2060.
-* **Tipping Point Classification (Random Forest):** A `RandomForestClassifier` samples hundreds of randomized climate scenarios to map out systemic thresholds. This models a clear boundary line separating a stable ecosystem from a runaway greenhouse crash.
+* **Tipping Point Classification (Random Forest) (Graph 4):** A `RandomForestClassifier` samples hundreds of randomized climate scenarios to map out systemic thresholds. This models a clear boundary line separating a stable ecosystem from a runaway greenhouse crash.
+
+**Dynamic Coordinate Tracking (Graph 4 Update):** The system features a real-time vector overlay mapped onto the decision boundary space. Rather than locking onto a static baseline, the tracking node (represented by the gold star coordinate) calculates the exact future $CO_2$ projection vector ($X_{\text{predicted}}$). As you modify the forecast horizon slider, the indicator moves dynamically along the X-axis (`Initial CO₂`), visually demonstrating how close the planet is creeping toward the systemic tipping boundary margin.
+
 
 ### 🔄 The Amplifying Feedback Loop
 
+The system operates as a coupled network where human forecasting timelines drive non-linear physical reactions. Adjusting the slider calculates a new projected $CO_2$ baseline, which instantly cascades through the environmental sub-systems:
+
 ```mermaid
 graph TD
-    A[Initial Temperature Anomaly] --> B(Melted Glacial Ice)
+    UserSlider[User Changes Forecast Year Slider] -->|Updates ML Regression Line| FutureCO2(Predicted Future CO2 Matrix)
+    FutureCO2 -->|Calculates ΔT Anomaly Shift| A[Atmospheric Temperature Shift]
+    
+    A --> B(Melted Glacial Ice)
     A --> C(Lower Ocean Solubility)
+    
     B --> D(Plunging Albedo α)
     C --> E(CO2 Outgassing)
+    
     D --> F(Higher Absorbed Solar Watts)
     C --> F
+    
     E --> G(Thicker Optical Depth τ)
     F --> H[Combined Surface Heating]
     G --> H
-    H -->|Amplifies Loop| A
+    
+    H -->|Amplifies Loop Matrix| A
+    FutureCO2 -->|Slides Gold Star Element| Graph4[Graph 4: Runaway Tipping Boundary Space]
 ```
 
 ---
