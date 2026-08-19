@@ -1,6 +1,6 @@
 # Coupled Planetary Physics Simulation & ML Interactive Web Dashboard
 
-[![Streamlit App](https://streamlit.io)](https://planetary-climate-dashboard-39fa7nlk7sshwsuzsyskjd.streamlit.app/)
+🌐 **Live Interactive Web App:** [Launch Live Streamlit Dashboard](https://planetary-climate-dashboard-39fa7nlk7sshwsuzsyskjd.streamlit.app/)
 
 An interactive, production-grade data science application that unifies **atmospheric radiative transfer**, **aquatic geochemistry**, and **cryospheric thermodynamics**. This system bypasses hardcoded inputs by streaming live, globally averaged atmospheric telemetry from the **NOAA Global Monitoring Laboratory** and uses Machine Learning to predict future climate scenarios.
 
@@ -63,33 +63,19 @@ graph TD
 
 ---
 
-## 🛠️ Local Installation & Execution
+## 📄 License & Copyright
 
-To clone the repository and run the interactive dashboard locally on your machine, follow these steps:
+> ⚠️ **IMPORTANT COPYRIGHT NOTICE**
+> 
+> **All Rights Reserved © 2026 T A Srinivas.**
+> This repository is strictly for portfolio viewing purposes. **DO NOT COPY, CLONE, OR REDISTRIBUTE** this code. Stolen copies or unauthorized forks will be reported immediately for a GitHub copyright takedown.
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com
-cd planetary-climate-dashboard
-```
+* **Lead Architect & Developer:** [Srinivasta](https://github.com/SRINIVASTA)
 
-### 2. Install Required Dependencies
-Ensure you have Python installed, then install the data science dependencies via `pip`:
-```bash
-pip install -r requirements.txt
-```
+### 🌐 Let’s Connect
 
-### 3. Run the Web App Layout
-Execute the application using the Streamlit runtime command:
-```bash
-streamlit run app.py
-```
-
----
-
-## 🌐 Deployment to Streamlit Community Cloud
-
-This project is optimized for instant deployment to **Streamlit Cloud**:
-1. Push your updated code structure to a public GitHub repository.
-2. Log into [Streamlit Community Cloud](https://streamlit.io) and link your GitHub account.
-3. Click **"Deploy an app"**, select your repository, specify the main branch, set the entry point file to `app.py`, and hit **Deploy**.
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/srinivas-t-a-557637119/)  
+- [![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/srinivasta)  
+- [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tasrinivass@gmail.com)  
+- [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/srinivasta)
+- [![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=website&logoColor=white)](https://srinivasta.github.io)
