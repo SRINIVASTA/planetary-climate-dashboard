@@ -188,11 +188,15 @@ predictions = clf.predict(np.c_[co2_grid.ravel(), solar_grid.ravel()]).reshape(c
 
 ax4.contourf(co2_grid, solar_grid, predictions, alpha=0.25, cmap='coolwarm')
 ax4.contour(co2_grid, solar_grid, predictions, colors='black', linewidths=1.2, linestyles='--')
-ax4.scatter(latest_co2, 340.0, color='gold', marker='*', s=220, edgecolors='black', linewidths=1.5, zorder=5, label="NOAA Base")
+
+# FIX: Changed latest_co2 to predicted_future_co2 and updated the label to include the chosen year
+ax4.scatter(predicted_future_co2, 340.0, color='gold', marker='*', s=220, edgecolors='black', linewidths=1.5, zorder=5, label=f"Forecast Year {target_future_year}")
+
 ax4.set_title("4. ML Real-Data Space Mapping", fontsize=10, fontweight='bold')
 ax4.set_xlabel("Initial CO₂ (ppm)")
 ax4.set_ylabel("Solar Input (W/m²)")
 ax4.grid(True, alpha=0.15)
+ax4.legend(loc='lower left', fontsize=8) # Added legend to display your dynamic tracking label
 
 plt.tight_layout()
 # Pipe matplotlib asset straight into the Streamlit rendering engine
