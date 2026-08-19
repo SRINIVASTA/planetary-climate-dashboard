@@ -80,8 +80,13 @@ target_future_year = st.sidebar.slider("Select Forecast Horizon Year", min_value
 future_X = np.array([[float(target_future_year)]])
 future_X_poly = poly_transform.transform(future_X)
 
-# FIX: Added explicit index slice extraction [0] to protect array-to-float conversions
-predicted_future_co2 = float(ml_regressor.predict(future_X_poly)[0])
+# --- THE MATCHING SYMMETRY FIX ---
+if target_future_year <= 2026:
+    # If the user selects the current year, anchor it strictly to the live NOAA data point
+    predicted_future_co2 = latest_co2
+else:
+    # For upcoming years, execute the Scikit-Learn polynomial projection line
+    predicted_future_co2 = float(ml_regressor.predict(future_X_poly)[0])
 
 # Metric Display Boxes
 col_m1, col_m2 = st.columns(2)
