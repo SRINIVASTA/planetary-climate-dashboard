@@ -245,9 +245,9 @@ st.markdown("""
 <style>
 .desktop-pdf-top-bar {
     background-color: #2F3542 !important;
-    padding: 10px 18px !important;
+    padding: 12px 18px !important;
     border-radius: 8px 8px 0px 0px !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
     color: #FFFFFF !important;
     font-size: 13px !important;
     display: flex !important;
@@ -256,6 +256,18 @@ st.markdown("""
     border: 1px solid #1E222B !important;
     margin-top: 1.5rem !important;
 }
+/* FIX: Pure CSS window dots. No raw symbols or characters used! */
+.window-dot {
+    display: inline-block !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    margin-right: 6px !important;
+}
+.dot-red { background-color: #FF4757 !important; }
+.dot-yellow { background-color: #FFA502 !important; }
+.dot-green { background-color: #2ED573 !important; }
+
 .desktop-pdf-workspace {
     background-color: #F1F2F6 !important;
     padding: 25px !important;
@@ -289,15 +301,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# --- STEP 5: PEER-REVIEWED MANUSCRIPT DISPLAY PANEL ---
 with st.expander("📖 Read Full Peer-Reviewed Manuscript Specification"):
     st.markdown("""
     <div class="desktop-pdf-top-bar">
-      <div>
-        <span style="color: #FF4757; font-size: 16px; margin-right: 5px;">&#128308;</span>
-        <span style="color: #FFA502; font-size: 16px; margin-right: 5px;">&#128993;</span>
-        <span style="color: #2ED573; font-size: 16px; margin-right: 15px;">&#128994;</span>
-        <b>📄 Planetary_Physics_Manuscript_2026.pdf</b>
+      <div style="display: flex; align-items: center;">
+        <span class="window-dot dot-red"></span>
+        <span class="window-dot dot-yellow"></span>
+        <span class="window-dot dot-green"></span>
+        <span style="margin-left: 8px; font-weight: bold;">📄 Planetary_Physics_Manuscript_2026.pdf</span>
       </div>
       <div>
         <span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span>
@@ -306,7 +317,7 @@ with st.expander("📖 Read Full Peer-Reviewed Manuscript Specification"):
     <div class="desktop-pdf-workspace">
       <div class="academic-paper-canvas-st">
         <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
-        <div style="text-align: center; font-size: 14px; font-style: italic;">T. A. Srinivas — August 2026</div>
+        <div style="text-align: center; font-size: 14px; font-style: italic; margin-bottom: 20px;">T. A. Srinivas — August 2026</div>
         <div class="paper-abstract-st">
           <strong>ABSTRACT —</strong> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture.
         </div>
