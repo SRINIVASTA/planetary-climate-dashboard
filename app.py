@@ -121,25 +121,35 @@ wavelengths = np.linspace(5, 30, 500)
 temperature_steps_celsius = np.array([14.0, 15.5, 17.0, 18.5])
 
 outgassed_history, albedo_history, solar_absorbed_history = [], [], []
+
+# FIXED: Initial solubility is locked to the real 14°C base planet profile
 initial_solubility = get_henry_solubility(14 + 273.15)
-initial_dissolved_moles = initial_solubility * (predicted_future_co2 * 1e-6) * ocean_volume_L
+
+# FIXED: Baseline pool uses the real latest_co2 (2026 data), NOT the future prediction!
+initial_dissolved_moles = initial_solubility * (latest_co2 * 1e-6) * ocean_volume_L
 
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(24, 5.5))
 
 for T_C in temperature_steps_celsius:
     T_K = T_C + 273.15
     current_solubility = get_henry_solubility(T_K)
+    
+    # FIXED: Outgassing is driven by comparing the current state to the user's predicted slider year
     moles_outgassed = max(0, initial_dissolved_moles - (current_solubility * (predicted_future_co2 * 1e-6) * ocean_volume_L))
     gt_co2_released = (moles_outgassed * M_co2) / 1e15
     outgassed_history.append(gt_co2_released)
+    
+    # Calculate greenhouse optical thickness based on interactive trends
     co2_column_density = 3.5 + (gt_co2_released * 0.12)
     
+    # Graph 3 Math
     ice_fraction = 1.0 / (1.0 + np.exp(k_melt * (T_K - T_melt_center)))
     planetary_albedo = (ice_fraction * alpha_ice) + ((1.0 - ice_fraction) * alpha_ocean)
     absorbed_solar = S0_flux * (1.0 - planetary_albedo)
     albedo_history.append(planetary_albedo)
     solar_absorbed_history.append(absorbed_solar)
     
+    # Graph 1 Math
     I_surface = planck_wavelength(wavelengths, T_K)
     cross_section = np.exp(-((wavelengths - 15.0) / 1.5)**2)
     tau = co2_column_density * cross_section
