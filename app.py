@@ -240,116 +240,34 @@ st.info("""
 # --- STAGE 5: PEER-REVIEWED MANUSCRIPT DISPLAY PANEL ---
 # =============================================================================
 
-# Inline styles to establish uniform margins, document dimensions, and crisp text parameters
+# Inline styles to build your white-paper interface
 st.markdown("""
 <style>
-.desktop-pdf-top-bar {
-    background-color: #2F3542 !important;
-    padding: 12px 18px !important;
-    border-radius: 8px 8px 0px 0px !important;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
-    color: #FFFFFF !important;
-    font-size: 13px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    border: 1px solid #1E222B !important;
-    margin-top: 1.5rem !important;
-}
-.window-dot {
-    display: inline-block !important;
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50% !important;
-    margin-right: 6px !important;
-}
-.dot-red { background-color: #FF4757 !important; }
-.dot-yellow { background-color: #FFA502 !important; }
-.dot-green { background-color: #2ED573 !important; }
-
-.desktop-pdf-workspace {
-    background-color: #F1F2F6 !important;
-    padding: 25px !important;
-    border-left: 1px solid #DCDDE1 !important;
-    border-right: 1px solid #DCDDE1 !important;
-    border-bottom: 1px solid #DCDDE1 !important;
-    border-radius: 0px 0px 8px 8px !important;
-    margin-bottom: 2rem !important;
-}
-.academic-paper-canvas-st {
-    background-color: #FFFFFF !important;
-    padding: 40px !important;
-    border: 1px solid #DCDDE1 !important;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1) !important;
-    color: #2F3542 !important;
-    font-family: 'Times New Roman', Times, serif !important;
-}
-.paper-title-st {
-    font-size: 24px !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    margin-bottom: 6px !important;
-    color: #000000 !important;
-    text-transform: uppercase;
-}
-.paper-abstract-st {
-    background-color: #F8F9FA !important;
-    border-left: 4px solid #747D8C !important;
-    padding: 15px !important;
-    margin: 20px auto !important;
-    font-size: 14px !important;
-    text-align: justify !important;
-    font-family: Arial, sans-serif !important;
-    line-height: 1.5 !important;
-}
-.academic-section-st {
-    font-size: 16px !important;
-    font-weight: bold !important;
-    color: #000000 !important;
-    text-transform: uppercase;
-    border-bottom: 1.5px solid #2F3542 !important;
-    padding-bottom: 3px !important;
-    margin-top: 30px !important;
-    margin-bottom: 12px !important;
-}
-.academic-p-st {
-    text-align: justify !important;
-    text-indent: 30px !important;
-    line-height: 1.6 !important;
-    font-size: 15px !important;
-    margin-bottom: 15px !important;
-}
-.academic-bullet-st {
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-    margin-left: 20px !important;
-    margin-bottom: 10px !important;
-    text-align: justify !important;
-}
+/* CSS styling definitions for the PDF workspace and academic canvas */
+.desktop-pdf-top-bar { background-color: #2F3542 !important; padding: 12px 18px !important; border-radius: 8px 8px 0px 0px !important; color: #FFFFFF !important; display: flex !important; justify-content: space-between !important; }
+.desktop-pdf-workspace { background-color: #F1F2F6 !important; padding: 25px !important; border-radius: 0px 0px 8px 8px !important; }
+.academic-paper-canvas-st { background-color: #FFFFFF !important; padding: 40px !important; color: #2F3542 !important; font-family: 'Times New Roman', Times, serif !important; }
+.paper-title-st { font-size: 24px !important; font-weight: bold !important; text-align: center !important; text-transform: uppercase; }
+.paper-abstract-st { background-color: #F8F9FA !important; border-left: 4px solid #747D8C !important; padding: 15px !important; font-size: 14px !important; text-align: justify !important; }
+.academic-section-st { font-size: 16px !important; font-weight: bold !important; text-transform: uppercase; border-bottom: 1.5px solid #2F3542 !important; margin-top: 30px !important; }
+.academic-p-st { text-align: justify !important; text-indent: 30px !important; line-height: 1.6 !important; font-size: 15px !important; }
 </style>
 """, unsafe_allow_html=True)
 
 with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
-    st.markdown("""
+    st.markdown(r"""
     <div class="desktop-pdf-top-bar">
-      <div style="display: flex; align-items: center;">
-        <span class="window-dot dot-red"></span>
-        <span class="window-dot dot-yellow"></span>
-        <span class="window-dot dot-green"></span>
-        <span style="margin-left: 8px; font-weight: bold;">Planetary_Physics_Manuscript_2026.pdf</span>
-      </div>
-      <div>
-        <span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span>
-      </div>
+      <span>Planetary_Physics_Manuscript_2026.pdf</span>
+      <span>Page 1 of 1</span>
     </div>
     
     <div class="desktop-pdf-workspace">
       <div class="academic-paper-canvas-st">
         <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
-        <div style="text-align: center; font-size: 14px; font-style: italic; margin-bottom: 20px;">T. A. Srinivas - August 2026</div>
+        <div style="text-align: center; font-style: italic; margin-bottom: 20px;">T. A. Srinivas - August 2026</div>
         
         <div class="paper-abstract-st">
-          <strong>ABSTRACT —</strong> This manuscript introduces an integrated software framework combining atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics with real-time NOAA telemetry and machine learning.
+          <strong>ABSTRACT —</strong> Introduces an integrated framework combining atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics with real-time NOAA telemetry and machine learning.
         </div>
 
         <div class="academic-section-st">📐 The Physics Under the Hood: Mathematical Blueprint</div>
@@ -376,7 +294,6 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
         <div class="academic-p-st" style="text-indent: 0px;">
           Features a dual-layer pipeline utilizing Scikit-Learn polynomial regression for predictive forecasting to 2060 and Random Forest classification for systemic tipping point boundary mapping.
         </div>
-
       </div>
     </div>
     """, unsafe_allow_html=True)
