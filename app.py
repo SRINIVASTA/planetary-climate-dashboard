@@ -289,24 +289,30 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Wrap the Desktop Document Interface within a native Streamlit drop-down container
-with st.expander("📖 Read Full Peer-Reviewed Manuscript Specification"):
-    st.markdown(f"""
-    <div class="desktop-pdf-top-bar">
-      <div><b>📄 Planetary_Physics_Manuscript_2026.pdf</b></div>
-      <div><span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span></div>
+# FIX: Swapped out raw emojis for secure HTML entity numbering codes
+st.markdown(f"""
+<div class="desktop-pdf-top-bar">
+  <div>
+    <span style="color: #FF4757; font-size: 16px; margin-right: 5px;">&#128308;</span>
+    <span style="color: #FFA502; font-size: 16px; margin-right: 5px;">&#128993;</span>
+    <span style="color: #2ED573; font-size: 16px; margin-right: 15px;">&#128994;</span>
+    <b>📄 Planetary_Physics_Manuscript_2026.pdf</b>
+  </div>
+  <div>
+    <span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span>
+  </div>
+</div>
+<div class="desktop-pdf-workspace">
+  <div class="academic-paper-canvas-st">
+    <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
+    <div style="text-align: center; font-size: 14px; font-style: italic;">T. A. Srinivas — August 2026</div>
+    <div class="paper-abstract-st">
+      <b>ABSTRACT —</b> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture.
     </div>
-    <div class="desktop-pdf-workspace">
-      <div class="academic-paper-canvas-st">
-        <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
-        <div style="text-align: center; font-size: 14px; font-style: italic;">T. A. Srinivas — August 2026</div>
-        <div class="paper-abstract-st">
-          <b>ABSTRACT —</b> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture.
-        </div>
-        <p><i>(Note: Full manuscript HTML specifications and extended sections regarding radiative loops, geochemical feedback, and ML vector triggers are included in the deployed UI component.)</i></p>
-      </div>
-    </div>
-    """, unsafe_allow_html=True)
+    <p><i>(Note: Full manuscript HTML specifications and extended sections regarding radiative loops, geochemical feedback, and ML vector triggers are included in the deployed UI component.)</i></p>
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
 <!-- DESKTOP PDF VIEWER SIMULATION CONTAINER -->
 <div align="left" style="background-color: #2F3542; padding: 10px; border-radius: 8px 8px 0px 0px; font-family: sans-serif; color: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #1E222B; margin-bottom: 0px;">
