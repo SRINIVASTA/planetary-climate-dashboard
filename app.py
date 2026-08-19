@@ -20,8 +20,6 @@ st.markdown("This simulation streams real-time telemetry from **NOAA** to model 
 # --- STAGE 1: DYNAMIC NOAA INGESTION ---
 @st.cache_data(ttl=86400)  # Cache data for 24 hours to prevent spamming NOAA servers
 def fetch_noaa_data():
-
-# Corrected NOAA CO2 data URL pointing to a specific CSV file
     noaa_url = "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv"
 
     req = urllib.request.Request(noaa_url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -60,7 +58,9 @@ target_future_year = st.sidebar.slider("Select Forecast Horizon Year", min_value
 # Execute ML Prediction for the requested year
 future_X = np.array([[float(target_future_year)]])
 future_X_poly = poly_transform.transform(future_X)
-predicted_future_co2 = float(ml_regressor.predict(future_X_poly))
+
+# FIX: Added explicit index slice extraction [0] to protect array-to-float conversions
+predicted_future_co2 = float(ml_regressor.predict(future_X_poly)[0])
 
 # Metric Display Boxes
 col_m1, col_m2 = st.columns(2)
