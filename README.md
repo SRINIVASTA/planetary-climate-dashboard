@@ -58,23 +58,24 @@ The system operates as a coupled network where human forecasting timelines drive
 ```mermaid
 graph TD
     UserSlider[User Changes Forecast Year Slider] -->|Updates ML Regression Line| FutureCO2(Predicted Future CO2 Matrix)
+    
+    FutureCO2 -->|Slides Gold Star Element| Graph4[Graph 4: Runaway Tipping Boundary Space]
     FutureCO2 -->|Calculates ΔT Anomaly Shift| A[Atmospheric Temperature Shift]
     
     A --> B(Melted Glacial Ice)
     A --> C(Lower Ocean Solubility)
     
-    B --> D(Plunging Albedo α)
-    C --> E(CO2 Outgassing)
+    B -->|Plunges Albedo α| Graph3[Graph 3: Ice-Albedo & Solar Absorption]
+    C -->|Calculates Pool Drops| Graph2[Graph 2: Henry's Law CO2 Outgassing]
     
-    D --> F(Higher Absorbed Solar Watts)
-    C --> F
+    Graph2 --> G(Thicker Optical Depth τ)
+    Graph3 --> F(Higher Absorbed Solar Watts)
     
-    E --> G(Thicker Optical Depth τ)
+    G --> Graph1[Graph 1: Outgoing Longwave Radiation]
     F --> H[Combined Surface Heating]
-    G --> H
     
-    H -->|Amplifies Loop Matrix| A
-    FutureCO2 -->|Slides Gold Star Element| Graph4[Graph 4: Runaway Tipping Boundary Space]
+    Graph1 -->|Infrared Greenhouse Trapping| H
+    H -->|Amplifies Feedback Loop Matrix| A
 ```
 
 ---
