@@ -237,6 +237,78 @@ st.info("""
 """)
 
 # =============================================================================
+# --- STAGE 6: PEER-REVIEWED MANUSCRIPT DISPLAY (DESKTOP PDF VIEW) ---
+# =============================================================================
+
+# Specialized PDF-Viewer canvas style sheet rules for the Streamlit UI
+st.markdown("""
+<style>
+.desktop-pdf-top-bar {
+    background-color: #2F3542 !important;
+    padding: 10px 18px !important;
+    border-radius: 8px 8px 0px 0px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border: 1px solid #1E222B !important;
+    margin-top: 1.5rem !important;
+}
+.desktop-pdf-workspace {
+    background-color: #F1F2F6 !important;
+    padding: 25px !important;
+    border-radius: 0px 0px 8px 8px !important;
+    margin-bottom: 2rem !important;
+}
+.academic-paper-canvas-st {
+    background-color: #FFFFFF !important;
+    padding: 40px !important;
+    border: 1px solid #DCDDE1 !important;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1) !important;
+    color: #2F3542 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+.paper-title-st {
+    font-size: 24px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 6px !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+}
+.paper-abstract-st {
+    background-color: #F8F9FA !important;
+    border-left: 4px solid #747D8C !important;
+    padding: 15px !important;
+    margin: 20px auto !important;
+    font-size: 14px !important;
+    text-align: justify !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Wrap the Desktop Document Interface within a native Streamlit drop-down container
+with st.expander("📖 Read Full Peer-Reviewed Manuscript Specification"):
+    st.markdown(f"""
+    <div class="desktop-pdf-top-bar">
+      <div><b>📄 Planetary_Physics_Manuscript_2026.pdf</b></div>
+      <div><span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span></div>
+    </div>
+    <div class="desktop-pdf-workspace">
+      <div class="academic-paper-canvas-st">
+        <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
+        <div style="text-align: center; font-size: 14px; font-style: italic;">T. A. Srinivas — August 2026</div>
+        <div class="paper-abstract-st">
+          <b>ABSTRACT —</b> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture.
+        </div>
+        <p><i>(Note: Full manuscript HTML specifications and extended sections regarding radiative loops, geochemical feedback, and ML vector triggers are included in the deployed UI component.)</i></p>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# =============================================================================
 # --- 7. ABSOLUTE LAST LINE OF APP.PY (GUARANTEED EXECUTING IN BOTH STATES) ---
 # =============================================================================
 st.markdown( 
