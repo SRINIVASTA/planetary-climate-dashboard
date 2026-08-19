@@ -236,16 +236,18 @@ st.info("""
 * **Graph 4:** Random Forest Classifier identifying systemic tipping boundary margins.
 """)
 
+# =============================================================================
 # --- STAGE 5: PEER-REVIEWED MANUSCRIPT DISPLAY PANEL ---
-# Block 1: Inject custom document CSS layers directly into the Streamlit viewport
+# =============================================================================
+
+# Inline style rules to define canvas sheets and document flow controls
 st.markdown("""
 <style>
-/* Mimics a real desktop PDF window application toolbar */
 .pdf-desktop-window-bar {
     background-color: #2F3542 !important;
     padding: 12px 18px !important;
     border-radius: 8px 8px 0px 0px !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
     color: #FFFFFF !important;
     font-size: 13px !important;
     display: flex !important;
@@ -254,7 +256,6 @@ st.markdown("""
     border: 1px solid #1E222B !important;
     margin-top: 1.5rem !important;
 }
-/* Creates the light gray desktop background workspace */
 .pdf-desktop-workspace {
     background-color: #F1F2F6 !important;
     padding: 30px !important;
@@ -264,7 +265,6 @@ st.markdown("""
     border-radius: 0px 0px 8px 8px !important;
     margin-bottom: 2rem !important;
 }
-/* Simulates a high-authority crisp white academic paper canvas sheet */
 .pdf-academic-sheet-canvas {
     background-color: #FFFFFF !important;
     padding: 45px !important;
@@ -273,7 +273,6 @@ st.markdown("""
     color: #2F3542 !important;
     font-family: 'Times New Roman', Times, serif !important;
 }
-/* Enforces professional text justification and indented margins */
 .pdf-academic-paragraph {
     text-align: justify !important;
     text-indent: 30px !important;
@@ -282,11 +281,20 @@ st.markdown("""
     margin-bottom: 12px !important;
     color: #2F3542 !important;
 }
+.pdf-equation-block {
+    text-align: center !important;
+    font-size: 16px !important;
+    font-style: italic !important;
+    margin: 18px auto !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
 </style>
 """, unsafe_allow_html=True)
-# Block 2: Stream the entire document frame through an isolated continuous layout matrix
+
 with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
-    st.markdown(r"""
+    st.markdown("""
     <div class="pdf-desktop-window-bar">
       <div style="display: flex; align-items: center;">
         <span style="display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; background-color: #FF4757;"></span>
@@ -300,23 +308,18 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
     <div class="pdf-desktop-workspace">
       <div class="pdf-academic-sheet-canvas">
         
-        <!-- MANUSCRIPT HEADER MATRICES -->
         <div style="text-align: center; margin-bottom: 25px;">
           <h1 style="font-size: 24px; font-weight: bold; color: #000000; text-transform: uppercase; margin-bottom: 4px; line-height: 1.2;">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</h1>
           <h3 style="font-size: 15px; color: #2F3542; margin-bottom: 2px;"><b>T. A. Srinivas</b></h3>
-          <p style="font-size: 13px; font-style: italic; color: #57606F;">Independent Software Engineer & Data Scientist — August 2026</p>
+          <p style="font-size: 13px; font-style: italic; color: #57606F;">Independent Software Engineer & Data Scientist &mdash; August 2026</p>
         </div>
         
-        <!-- ABSTRACT CALLOUT -->
         <div style="background-color: #F8F9FA; border-left: 4px solid #747D8C; padding: 15px; margin: 20px auto; font-size: 14px; text-align: justify; font-family: Arial, sans-serif; line-height: 1.5; color: #2F3542;">
-          <b>ABSTRACT —</b> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture. By avoiding static simulation parameters, the framework couples automated live telemetric ingestion streams from the 
-
- with a multi-layered scikit-learn machine learning engine. Moving beyond isolated systemic calculations, we establish an explicit dynamic thermal anomaly factor to show how predictive regression modeling drives immediate physical consequences across non-linear environmental feedbacks and structural tipping point decision boundaries.
+          <b>ABSTRACT &mdash;</b> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture. By avoiding static simulation parameters, the framework couples automated live telemetric ingestion streams from the NOAA Global Monitoring Laboratory with a multi-layered scikit-learn machine learning engine. Moving beyond isolated systemic calculations, we establish an explicit dynamic thermal anomaly factor to show how predictive regression modeling drives immediate physical consequences across non-linear environmental feedbacks and structural tipping point decision boundaries.
         </div>
         
         <hr style="border: 0; height: 1px; background: #CED6E0; margin: 25px 0;" />
 
-        <!-- MANUSCRIPT SECTION I -->
         <h3 style="font-size: 16px; font-weight: bold; color: #000000; text-transform: uppercase; border-bottom: 1.5px solid #2F3542; padding-bottom: 3px; margin-top: 25px; margin-bottom: 12px;">📐 The Physics Under the Hood: Mathematical Blueprint</h3>
         <p class="pdf-academic-paragraph" style="text-indent: 0px;">
           The application dynamically couples three independent planetary sub-systems using rigorous thermodynamic, radiative, and predictive equations:
@@ -324,58 +327,66 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
         
         <h4 style="font-size: 15px; font-weight: bold; margin-top: 15px; margin-bottom: 6px; color: #000000;">1. Longwave Emission & Radiative Transfer (Graph 1)</h4>
         <p class="pdf-academic-paragraph">
-          The baseline planetary thermal footprint is mapped using Planck's Law, determining spectral radiance ($B_\lambda$) across infrared cooling channels:
+          The baseline planetary thermal footprint is mapped using Planck's Law, determining spectral radiance (<i>B<sub>&lambda;</sub></i>) across infrared cooling channels:
         </p>
         
-        $$B_\lambda(\lambda, T) = \frac{2hc^2}{\lambda^5 \left( e^{ \frac{hc}{\lambda k_B T} } - 1 \right)}$$
+        <div class="pdf-equation-block">
+          B<sub>&lambda;</sub>(&lambda;, T) = (2hc<sup>2</sup>) / [ &lambda;<sup>5</sup> ( e<sup>(hc / &lambda;k<sub>B</sub>T)</sup> - 1 ) ]
+        </div>
         
         <p class="pdf-academic-paragraph">
-          Greenhouse gas absorption is resolved via the Beer-Lambert Law. The major $CO_2$ bending vibration mode at $15\,\mu\text{m}$ is modeled using a localized Gaussian line-shape cross-section to accurately capture out-of-band energy profiles.
+          Greenhouse gas absorption is resolved via the Beer-Lambert Law. The major CO<sub>2</sub> bending vibration mode at 15 &mu;m is modeled using a localized Gaussian line-shape cross-section to accurately capture out-of-band energy profiles.
         </p>
         <p class="pdf-academic-paragraph">
-          Dynamic Coupling Update: Instead of checking fixed temperatures, the engine now computes a real-time global warming anomaly ($\Delta T = (CO_{2,\text{predicted}} - CO_{2,\text{baseline}}) \times 0.1$) to dynamically shift the operational baseline:
+          Dynamic Coupling Update: Instead of checking fixed temperatures, the engine now computes a real-time global warming anomaly (&Delta;T = (CO<sub>2, predicted</sub> - CO<sub>2, baseline</sub>) &times; 0.1) to dynamically shift the operational baseline:
         </p>
         
-        $$I_{\text{observed}}(\lambda) = I_{\text{surface}}(\lambda) \cdot e^{-\tau(\lambda)} + I_{\text{atmosphere}}(\lambda) \cdot (1 - e^{-\tau(\lambda)})$$
+        <div class="pdf-equation-block">
+          I<sub>observed</sub>(&lambda;) = I<sub>surface</sub>(&lambda;) &middot; e<sup>-&tau;(&lambda;)</sup> + I<sub>atmosphere</sub>(&lambda;) &middot; ( 1 - e<sup>-&tau;(&lambda;)</sup> )
+        </div>
         
-        <!-- MANUSCRIPT SECTION II -->
         <h4 style="font-size: 15px; font-weight: bold; margin-top: 25px; margin-bottom: 6px; color: #000000;">2. Aquatic Carbon Outgassing (Graph 2)</h4>
         <p class="pdf-academic-paragraph">
           The ocean's capacity to retain greenhouse gases drops as water temperature rises. This phase shift is governed by Henry's Law, with its exponential temperature dependency derived through the Van 't Hoff equation:
         </p>
         
-        $$k(T) = k_\theta \times \exp\left[ C \left(\frac{1}{T} - \frac{1}{T_\theta}\right) \right]$$
+        <div class="pdf-equation-block">
+          k(T) = k<sub>&theta;</sub> &times; exp[ C ( 1/T - 1/T<sub>&theta;</sub> ) ]
+        </div>
         
         <p class="pdf-academic-paragraph">
-          The system calculates total mass shifts over an active upper ocean mixed layer volume ($V_{\text{ocean}} = 1.6 \times 10^{21}\text{ Liters}$), tracking the absolute outgassed carbon pool in Gigatons (Gt). The scatter coordinates slide downward dynamically along the curve as the user advances the forecast timeline.
+          The system calculates total mass shifts over an active upper ocean mixed layer volume (V<sub>ocean</sub> = 1.6 &times; 10<sup>21</sup> Liters), tracking the absolute outgassed carbon pool in Gigatons (Gt). The scatter coordinates slide downward dynamically along the curve as the user advances the forecast timeline.
         </p>
 
-        <!-- MANUSCRIPT SECTION III -->
         <h4 style="font-size: 15px; font-weight: bold; margin-top: 25px; margin-bottom: 6px; color: #000000;">3. Shortwave Solar Absorption & Ice Albedo (Graph 3)</h4>
         <p class="pdf-academic-paragraph">
           To balance the planetary energy budget, the cryosphere models non-linear ice-sheet decay through a continuous logistic activation curve:
         </p>
         
-        $$f_{\text{ice}}(T) = \frac{1}{1 + e^{k_{\text{melt}}(T - T_{\text{melt}})}}$$
-        $$\alpha_{\text{planetary}} = f_{\text{ice}} \cdot \alpha_{\text{ice}} + (1 - f_{\text{ice}}) \cdot \alpha_{\text{ocean}}$$
-        $$S_{\text{absorbed}} = S_0 \cdot (1 - \alpha_{\text{planetary}})$$
+        <div class="pdf-equation-block">
+          f<sub>ice</sub>(T) = 1 / [ 1 + e<sup>k<sub>melt</sub>(T - T<sub>melt</sub>)</sup> ]
+        </div>
+        <div class="pdf-equation-block">
+          &alpha;<sub>planetary</sub> = f<sub>ice</sub> &middot; &alpha;<sub>ice</sub> + (1 - f<sub>ice</sub>) &middot; &alpha;<sub>ocean</sub>
+        </div>
+        <div class="pdf-equation-block">
+          S<sub>absorbed</sub> = S<sub>0</sub> &middot; (1 - &alpha;<sub>planetary</sub>)
+        </div>
         
         <p class="pdf-academic-paragraph">
-          As the forecast year advances, rising temperatures induce cross-system forcing. This causes the plotted points to migrate down the reflectivity curve, tracking how dark open ocean ($\alpha = 0.08$) replaces reflective ice ($\alpha = 0.75$), driving an absorption spike over $\sim 298\text{ W/m}^2$.
+          As the forecast year advances, rising temperatures induce cross-system forcing. This causes the plotted points to migrate down the reflectivity curve, tracking how dark open ocean (&alpha; = 0.08) replaces reflective ice (&alpha; = 0.75), driving an absorption spike over &sim;298 W/m<sup>2</sup>.
         </p>
 
-        <!-- MANUSCRIPT SECTION IV -->
         <h3 style="font-size: 16px; font-weight: bold; color: #000000; text-transform: uppercase; border-bottom: 1.5px solid #2F3542; padding-bottom: 3px; margin-top: 30px; margin-bottom: 12px;">🧠 Machine Learning Integration</h3>
         <p class="pdf-academic-paragraph" style="text-indent: 0px;">
           The dashboard incorporates a dual-layer Machine Learning pipeline:
         </p>
         <p style="font-size: 15px; margin-left: 20px; text-align: justify; margin-bottom: 8px;">
-          <b>• Predictive Forecasting (Regression):</b> A Scikit-Learn <code>PolynomialFeatures(degree=2)</code> wrapped inside a <code>LinearRegression</code> engine ingests the live historical NOAA data feed (from 1980 to the present) to project future carbon paths out to the year 2060.
+          <b>&bull; Predictive Forecasting (Regression):</b> A Scikit-Learn <code>PolynomialFeatures(degree=2)</code> wrapped inside a <code>LinearRegression</code> engine ingests the live historical NOAA data feed (from 1980 to the present) to project future carbon paths out to the year 2060.
         </p>
         <p style="font-size: 15px; margin-left: 20px; text-align: justify; margin-bottom: 15px;">
-          <b>• Tipping Point Classification (Random Forest) (Graph 4):</b> A <code>RandomForestClassifier</code> samples hundreds of randomized climate scenarios to map out systemic thresholds. This models a clear boundary line separating a stable ecosystem from a runaway greenhouse crash.
+          <b>&bull; Tipping Point Classification (Random Forest) (Graph 4):</b> A <code>RandomForestClassifier</code> samples hundreds of randomized climate scenarios to map out systemic thresholds. This models a clear boundary line separating a stable ecosystem from a runaway greenhouse crash.
         </p>
-        <p class="pdf-academic-paragraph" style="text-indent: 0px; margin-top: 15px;">
           <b>Dynamic Coordinate Tracking (Graph 4 Update):</b> The system features a real-time vector overlay mapped onto the decision boundary space. Rather than locking onto a static baseline, the tracking node (represented by the gold star coordinate) calculates the exact future $CO_2$ projection vector ($X_{\text{predicted}}$). As you modify the forecast horizon slider, the indicator moves dynamically along the X-axis (Initial CO₂), visually demonstrating how close the planet is creeping toward the systemic tipping boundary margin.
         </p>
 
