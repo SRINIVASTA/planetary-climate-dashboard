@@ -1,6 +1,6 @@
 # Coupled Planetary Physics Simulation & ML Interactive Web Dashboard
 
-[![Streamlit App](https://streamlit.io)](https://streamlit.io)
+[![Streamlit App](https://streamlit.io)](https://planetary-climate-dashboard-39fa7nlk7sshwsuzsyskjd.streamlit.app/)
 
 An interactive, production-grade data science application that unifies **atmospheric radiative transfer**, **aquatic geochemistry**, and **cryospheric thermodynamics**. This system bypasses hardcoded inputs by streaming live, globally averaged atmospheric telemetry from the **NOAA Global Monitoring Laboratory** and uses Machine Learning to predict future climate scenarios.
 
