@@ -286,7 +286,7 @@ st.markdown("""
     text-align: center !important;
     margin-bottom: 6px !important;
     color: #000000 !important;
-    text-transform: uppercase !important;
+    text-transform: uppercase;
 }
 .paper-abstract-st {
     background-color: #F8F9FA !important;
@@ -295,6 +295,23 @@ st.markdown("""
     margin: 20px auto !important;
     font-size: 14px !important;
     text-align: justify !important;
+}
+.academic-section-st {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid #2F3542 !important;
+    padding-bottom: 3px !important;
+    margin-top: 30px !important;
+    margin-bottom: 12px !important;
+}
+.academic-p-st {
+    text-align: justify !important;
+    text-indent: 30px !important;
+    line-height: 1.6 !important;
+    font-size: 15px !important;
+    margin-bottom: 15px !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -314,18 +331,43 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
     </div>
     <div class="desktop-pdf-workspace">
       <div class="academic-paper-canvas-st">
+        
         <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
         <div style="text-align: center; font-size: 14px; font-style: italic; margin-bottom: 20px;">T. A. Srinivas - August 2026</div>
+        
         <div class="paper-abstract-st">
-          <strong>ABSTRACT -</strong> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture.
+          <strong>ABSTRACT -</strong> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture. By avoiding static simulation parameters, the framework couples automated live telemetric ingestion streams from the NOAA Global Monitoring Laboratory with a multi-layered scikit-learn machine learning engine. Moving beyond isolated systemic calculations, we establish an explicit dynamic thermal anomaly factor to show how predictive regression modeling drives immediate physical consequences across non-linear environmental feedbacks and structural tipping point decision boundaries.
         </div>
-        <p><i>(Note: Full manuscript HTML specifications and extended sections regarding radiative loops, geochemical feedback, and ML vector triggers are included in the deployed UI component.)</i></p>
+
+        <div class="academic-section-st">I. Introduction & Radiative Transfer Loops</div>
+        <div class="academic-p-st">
+          To understand structural greenhouse forcing mechanics, the planetary system establishes an operational baseline longwave emission profile derived via Planck's foundational radiation distribution equations. Rather than working with generalized planetary values, out-of-band energy attenuation properties are evaluated by applying the Beer-Lambert law across localized spectral channels.
+        </div>
+        <div class="academic-p-st">
+          The greenhouse gas absorption matrix is resolved continuously based on the relative optical depth depth factor. When the system registers a higher density threshold, the localized absorption band centered at 15 microns expands, restricting emission capabilities and simulating an accelerated radiative trapping framework.
+        </div>
+
+        <div class="academic-section-st">II. Geochemical and Cryospheric Feedback Systems</div>
+        <div class="academic-p-st">
+          Aquatic carbon pool retainment drops exponentially alongside temperature shifts, resolved continuously using Henry's Law calculations mapped across an active upper ocean mixed layer volume framework. The mathematical tracking shows that as global warming shifts accelerate, oceanic carbon dissolution limits drop, initiating an outgassing release pool measured in absolute Gigatons.
+        </div>
+        <div class="academic-p-st">
+          Concurrently, regional cryosphere structural variations are handled by routing dynamic surface shifts into a continuous sigmoidal logistic decay activation loop. As rising atmospheric metrics melt high-albedo glacial structures, the underlying open dark ocean surface is exposed. This drastically lowers the system reflectivity matrix, shifting solar energy parameters and driving an aggressive shortwave absorption cascade.
+        </div>
+
+        <div class="academic-section-st">III. Machine Learning Vector Space Triggers</div>
+        <div class="academic-p-st">
+          Systemic inter-dependencies are fully coupled by tracking future polynomial regression trends and piping coordinates live into a random forest decision boundary model. The predictive pipeline leverages quadratic features to capture non-linear trends from real-time NOAA data. 
+        </div>
+        <div class="academic-p-st">
+          Rather than keeping evaluation indicators static, the classification layer uses a dynamic coordinate mapper to locate the planet's exact trajectory relative to macro ecosystem boundaries. When user interactions shift the time horizon slider, the system updates its classification coordinates live on the spatial grid, highlighting structural proximity toward runaway tipping boundary failure configurations.
+        </div>
+
       </div>
     </div>
     """, unsafe_allow_html=True)
-
 # =============================================================================
-# --- 7. ABSOLUTE LAST LINE OF APP.PY (GUARANTEED EXECUTING IN BOTH STATES) ---
+# --- 6. ABSOLUTE LAST LINE OF APP.PY (GUARANTEED EXECUTING IN BOTH STATES) ---
 # =============================================================================
 st.markdown( 
  """ 
