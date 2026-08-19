@@ -134,6 +134,27 @@ for T_C in temperature_steps_celsius:
     gt_co2_released = (moles_outgassed * M_co2) / 1e15
     outgassed_history.append(gt_co2_released)
     
+# --- FIX: Calculate a dynamic climate warming shift based on the ML projection ---
+co2_anomaly = max(0, predicted_future_co2 - latest_co2)
+global_warming_shift = co2_anomaly * 0.1  # Amplifies the visual movement across the plots
+dynamic_temperature_steps = temperature_steps_celsius + global_warming_shift
+
+wavelengths = np.linspace(5, 30, 500)
+outgassed_history, albedo_history, solar_absorbed_history = [], [], []
+initial_solubility = get_henry_solubility(14 + 273.15)
+
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(24, 5.5))
+
+# FIX: Loop over the dynamic temperatures instead of static ones
+for T_C in dynamic_temperature_steps:
+    T_K = T_C + 273.15
+    current_solubility = get_henry_solubility(T_K)
+    
+    # Computes outgassing caused by warming relative to the user's selected horizon baseline
+    moles_outgassed = max(0, (initial_solubility - current_solubility) * (predicted_future_co2 * 1e-6) * ocean_volume_L)
+    gt_co2_released = (moles_outgassed * M_co2) / 1e15
+    outgassed_history.append(gt_co2_released)
+    
     # Update atmospheric thickness matrix dynamically
     co2_column_density = 3.5 + (gt_co2_released * 0.012)
     
@@ -151,7 +172,7 @@ for T_C in temperature_steps_celsius:
     observed_clean = (I_surface * np.exp(-tau)) + (planck_wavelength(wavelengths, 220) * (1 - np.exp(-tau)))
     observed = observed_clean + np.random.normal(0, 0.015, size=wavelengths.shape)
     
-    ax1.plot(wavelengths, observed, alpha=0.8, label=f'{T_C} C (CO2 Fact: {co2_column_density:.1f})')
+    ax1.plot(wavelengths, observed, alpha=0.8, label=f'{T_C:.1f} C (CO2 Fact: {co2_column_density:.1f})')
 
 ax1.set_title("1. Outgoing Longwave Radiation", fontsize=10, fontweight='bold')
 ax1.set_xlabel("Wavelength (microns)")
@@ -159,20 +180,24 @@ ax1.set_ylabel("Spectral Radiance")
 ax1.legend(loc='lower right', fontsize=7)
 ax1.grid(True, alpha=0.2)
 
-temps_fine = np.linspace(13, 20, 100)
+# Graph 2 Setup
+temps_fine = np.linspace(13, 25, 100) # Expanded range to accommodate shifting points
 ax2.plot(temps_fine, get_henry_solubility(temps_fine + 273.15), color='teal', alpha=0.5, linestyle='--')
-scatter2 = ax2.scatter(temperature_steps_celsius, [get_henry_solubility(t + 273.15) for t in temperature_steps_celsius], c=outgassed_history, cmap='autumn_r', s=60, zorder=3, edgecolors='black')
+# FIX: Plotted against dynamic_temperature_steps
+scatter2 = ax2.scatter(dynamic_temperature_steps, [get_henry_solubility(t + 273.15) for t in dynamic_temperature_steps], c=outgassed_history, cmap='autumn_r', s=60, zorder=3, edgecolors='black')
 for i, txt in enumerate(outgassed_history):
-    ax2.annotate(f"+{txt:.0f} Gt", (temperature_steps_celsius[i]+0.1, get_henry_solubility(temperature_steps_celsius[i] + 273.15)), fontsize=8, fontweight='bold')
+    ax2.annotate(f"+{txt:.0f} Gt", (dynamic_temperature_steps[i]+0.1, get_henry_solubility(dynamic_temperature_steps[i] + 273.15)), fontsize=8, fontweight='bold')
 ax2.set_title("2. Henry's Law CO2 Outgassing", fontsize=10, fontweight='bold')
 ax2.set_xlabel("Seawater Temp (C)")
 ax2.grid(True, alpha=0.2)
 
+# Graph 3 Setup
 ice_frac_fine = 1.0 / (1.0 + np.exp(k_melt * ((temps_fine + 273.15) - T_melt_center)))
 ax3.plot(temps_fine, (ice_frac_fine * alpha_ice) + ((1.0 - ice_frac_fine) * alpha_ocean), color='navy', alpha=0.5, linestyle=':')
-scatter3 = ax3.scatter(temperature_steps_celsius, albedo_history, c=solar_absorbed_history, cmap='YlOrRd', s=60, zorder=3, edgecolors='black')
+# FIX: Plotted against dynamic_temperature_steps
+scatter3 = ax3.scatter(dynamic_temperature_steps, albedo_history, c=solar_absorbed_history, cmap='YlOrRd', s=60, zorder=3, edgecolors='black')
 for i, solar in enumerate(solar_absorbed_history):
-    ax3.annotate(f"{solar:.1f} W/m²", (temperature_steps_celsius[i]+0.1, albedo_history[i]), fontsize=8, fontweight='bold')
+    ax3.annotate(f"{solar:.1f} W/m²", (dynamic_temperature_steps[i]+0.1, albedo_history[i]), fontsize=8, fontweight='bold')
 ax3.set_title("3. Ice-Albedo & Solar Absorption", fontsize=10, fontweight='bold')
 ax3.set_xlabel("Surface Temp (C)")
 ax3.grid(True, alpha=0.2)
