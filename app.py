@@ -240,7 +240,6 @@ st.info("""
 # --- STAGE 5: PEER-REVIEWED MANUSCRIPT DISPLAY PANEL ---
 # =============================================================================
 
-# Define styles to clean up text and create a white-paper layout container
 st.markdown("""
 <style>
 .desktop-pdf-top-bar {
@@ -317,8 +316,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
-    
-    # 1. Desktop GUI Top Ribbon
     st.markdown("""
     <div class="desktop-pdf-top-bar">
       <div style="display: flex; align-items: center;">
@@ -331,93 +328,18 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
         <span style="background: #57606F; padding: 2px 8px; border-radius: 4px; font-size: 11px;">Page 1 of 1</span>
       </div>
     </div>
-    """, unsafe_allow_html=True)
     
-    # 2. White Paper Document Container Flow
-    st.markdown("""
     <div class="desktop-pdf-workspace">
       <div class="academic-paper-canvas-st">
-        
         <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
         <div style="text-align: center; font-size: 14px; font-style: italic; margin-bottom: 20px;">T. A. Srinivas - August 2026</div>
-        
         <div class="paper-abstract-st">
-          <strong>ABSTRACT -</strong> This manuscript introduces an integrated software framework that unifies atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics within a real-time responsive dashboard architecture. By avoiding static simulation parameters, the framework couples automated live telemetric ingestion streams from the NOAA Global Monitoring Laboratory with a multi-layered scikit-learn machine learning engine. Moving beyond isolated systemic calculations, we establish an explicit dynamic thermal anomaly factor to show how predictive regression modeling drives immediate physical consequences across non-linear environmental feedbacks and structural tipping point decision boundaries.
+          <strong>ABSTRACT -</strong> This manuscript introduces an integrated software framework uniting atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics.
         </div>
-
-        <div class="academic-section-st">📐 The Physics Under the Hood: Mathematical Blueprint</div>
-        <div class="academic-p-st">
-          The application dynamically couples three independent planetary sub-systems using rigorous thermodynamic, radiative, and predictive equations:
-        </div>
-
-        <div style="font-weight: bold; font-size: 15px; margin-top: 15px; color: #000000;">1. Longwave Emission & Radiative Transfer (Graph 1)</div>
-        <div class="academic-p-st">
-          The baseline planetary thermal footprint is mapped using <b>Planck's Law</b>, determining spectral radiance ( $B_\lambda$ ) across infrared cooling channels:
-        </div>
-    """, unsafe_allow_html=True)
-    
-    # Native Streamlit Equation Rendering
-    st.latex(r"B_\lambda(\lambda, T) = \frac{2hc^2}{\lambda^5 \left( e^{ \frac{hc}{\lambda k_B T} } - 1 \right)}")
-    
-    st.markdown("""
-        <div class="academic-p-st">
-          Greenhouse gas absorption is resolved via the <b>Beer-Lambert Law</b>. The major $CO_2$ bending vibration mode at $15\,\mu\text{m}$ is modeled using a localized Gaussian line-shape cross-section to accurately capture out-of-band energy profiles.
-        </div>
-        <div class="academic-p-st">
-          <b>Dynamic Coupling Update:</b> Instead of checking fixed temperatures, the engine now computes a real-time global warming anomaly ($\Delta T = (CO_{2,\text{predicted}} - CO_{2,\text{baseline}}) \times 0.1$) to dynamically shift the operational baseline:
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.latex(r"I_{\text{observed}}(\lambda) = I_{\text{surface}}(\lambda) \cdot e^{-\tau(\lambda)} + I_{\text{atmosphere}}(\lambda) \cdot (1 - e^{-\tau(\lambda)})")
-    
-    st.markdown("""
-        <div style="font-weight: bold; font-size: 15px; margin-top: 15px; color: #000000;">2. Aquatic Carbon Outgassing (Graph 2)</div>
-        <div class="academic-p-st">
-          The ocean's capacity to retain greenhouse gases drops as water temperature rises. This phase shift is governed by <b>Henry's Law</b>, with its exponential temperature dependency derived through the <b>Van 't Hoff equation</b>:
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.latex(r"k(T) = k_\theta \times \exp\left[ C \left(\frac{1}{T} - \frac{1}{T_\theta}\right) \right]")
-    
-    st.markdown("""
-        <div class="academic-p-st">
-          The system calculates total mass shifts over an active upper ocean mixed layer volume ($V_{\text{ocean}} = 1.6 \times 10^{21}\,\text{Liters}$), tracking the absolute outgassed carbon pool in <b>Gigatons (Gt)</b>. The scatter coordinates slide downward dynamically along the curve as the user advances the forecast timeline.
-        </div>
-
-        <div style="font-weight: bold; font-size: 15px; margin-top: 15px; color: #000000;">3. Shortwave Solar Absorption & Ice Albedo (Graph 3)</div>
-        <div class="academic-p-st">
-          To balance the planetary energy budget, the cryosphere models non-linear ice-sheet decay through a continuous <b>logistic activation curve</b>:
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.latex(r"f_{\text{ice}}(T) = \frac{1}{1 + e^{k_{\text{melt}}(T - T_{\text{melt}})}}")
-    st.latex(r"\alpha_{\text{planetary}} = f_{\text{ice}} \cdot \alpha_{\text{ice}} + (1 - f_{\text{ice}}) \cdot \alpha_{\text{ocean}}")
-    st.latex(r"S_{\text{absorbed}} = S_0 \cdot (1 - \alpha_{\text{planetary}})")
-    
-    st.markdown("""
-        <div class="academic-p-st">
-          As the forecast year advances, rising temperatures induce cross-system forcing. This causes the plotted points to migrate down the reflectivity curve, tracking how dark open ocean ($\alpha = 0.08$) replaces reflective ice ($\alpha = 0.75$), driving an absorption spike over $\sim 298\,\text{W/m}^2$.
-        </div>
-
-        <div class="academic-section-st">🧠 Machine Learning Integration</div>
-        <div class="academic-p-st">
-          The dashboard incorporates a dual-layer Machine Learning pipeline:
-        </div>
-        
-        <p style="font-size: 15px; margin-left: 20px;">
-          <b>• Predictive Forecasting (Regression):</b> A Scikit-Learn <code>PolynomialFeatures(degree=2)</code> wrapped inside a <code>LinearRegression</code> engine ingests the live historical NOAA data feed (from 1980 to the present) to project future carbon paths out to the year 2060.
-        </p>
-        <p style="font-size: 15px; margin-left: 20px;">
-          <b>• Tipping Point Classification (Random Forest) (Graph 4):</b> A <code>RandomForestClassifier</code> samples hundreds of randomized climate scenarios to map out systemic thresholds. This models a clear boundary line separating a stable ecosystem from a runaway greenhouse crash.
-        </p>
-        
-        <div class="academic-p-st" style="margin-top: 15px;">
-          <b>Dynamic Coordinate Tracking (Graph 4 Update):</b> The system features a real-time vector overlay mapped onto the decision boundary space. Rather than locking onto a static baseline, the tracking node (represented by the gold star coordinate) calculates the exact future $CO_2$ projection vector ($X_{\text{predicted}}$). As you modify the forecast horizon slider, the indicator moves dynamically along the X-axis (Initial CO₂), visually demonstrating how close the planet is creeping toward the systemic tipping boundary margin.
-        </div>
-
       </div>
     </div>
     """, unsafe_allow_html=True)
+    st.latex(r"B_\lambda(\lambda, T) = \frac{2hc^2}{\lambda^5 \left( e^{ \frac{hc}{\lambda k_B T} } - 1 \right)}")
 # =============================================================================
 # --- 6. ABSOLUTE LAST LINE OF APP.PY (GUARANTEED EXECUTING IN BOTH STATES) ---
 # =============================================================================
