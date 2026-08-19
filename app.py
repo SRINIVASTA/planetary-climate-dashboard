@@ -240,6 +240,7 @@ st.info("""
 # --- STAGE 5: PEER-REVIEWED MANUSCRIPT DISPLAY PANEL ---
 # =============================================================================
 
+# Inline styles to establish uniform margins, document dimensions, and crisp text parameters
 st.markdown("""
 <style>
 .desktop-pdf-top-bar {
@@ -269,6 +270,9 @@ st.markdown("""
 .desktop-pdf-workspace {
     background-color: #F1F2F6 !important;
     padding: 25px !important;
+    border-left: 1px solid #DCDDE1 !important;
+    border-right: 1px solid #DCDDE1 !important;
+    border-bottom: 1px solid #DCDDE1 !important;
     border-radius: 0px 0px 8px 8px !important;
     margin-bottom: 2rem !important;
 }
@@ -295,6 +299,8 @@ st.markdown("""
     margin: 20px auto !important;
     font-size: 14px !important;
     text-align: justify !important;
+    font-family: Arial, sans-serif !important;
+    line-height: 1.5 !important;
 }
 .academic-section-st {
     font-size: 16px !important;
@@ -308,9 +314,17 @@ st.markdown("""
 }
 .academic-p-st {
     text-align: justify !important;
+    text-indent: 30px !important;
     line-height: 1.6 !important;
     font-size: 15px !important;
     margin-bottom: 15px !important;
+}
+.academic-bullet-st {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-left: 20px !important;
+    margin-bottom: 10px !important;
+    text-align: justify !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -333,13 +347,39 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
       <div class="academic-paper-canvas-st">
         <div class="paper-title-st">Coupled Planetary Physics Simulation & Machine Learning Interactive Integration Analysis</div>
         <div style="text-align: center; font-size: 14px; font-style: italic; margin-bottom: 20px;">T. A. Srinivas - August 2026</div>
+        
         <div class="paper-abstract-st">
-          <strong>ABSTRACT -</strong> This manuscript introduces an integrated software framework uniting atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics.
+          <strong>ABSTRACT —</strong> This manuscript introduces an integrated software framework combining atmospheric radiative transfer, aquatic geochemistry, and cryospheric thermodynamics with real-time NOAA telemetry and machine learning.
         </div>
+
+        <div class="academic-section-st">📐 The Physics Under the Hood: Mathematical Blueprint</div>
+        <div class="academic-p-st" style="text-indent: 0px;">
+          The application dynamically couples three independent planetary sub-systems using thermodynamic, radiative, and predictive equations (see source specification for complete LaTeX definitions):
+        </div>
+
+        <div style="font-weight: bold; font-size: 15px; margin-top: 15px; color: #000000; margin-bottom: 5px;">1. Longwave Emission & Radiative Transfer (Graph 1)</div>
+        <div class="academic-p-st">
+          Maps baseline thermal footprints using Planck's Law and resolves greenhouse gas absorption via the Beer-Lambert Law with localized Gaussian line-shape cross-sections for $CO_2$ at $15\,\mu\text{m}$. Dynamic warming anomalies ($\Delta T$) continuously update operational baselines.
+        </div>
+
+        <div style="font-weight: bold; font-size: 15px; margin-top: 25px; color: #000000; margin-bottom: 5px;">2. Aquatic Carbon Outgassing (Graph 2)</div>
+        <div class="academic-p-st">
+          Models ocean temperature-dependent greenhouse gas retention phase shifts via Henry's Law and the Van 't Hoff equation across an active upper ocean mixed layer volume ($V_{\text{ocean}} = 1.6 \times 10^{21}\text{ Liters}$).
+        </div>
+
+        <div style="font-weight: bold; font-size: 15px; margin-top: 25px; color: #000000; margin-bottom: 5px;">3. Shortwave Solar Absorption & Ice Albedo (Graph 3)</div>
+        <div class="academic-p-st">
+          Balances planetary energy budgets by simulating non-linear ice-sheet decay through a continuous logistic activation curve, tracking the replacement of reflective ice by dark open ocean.
+        </div>
+
+        <div class="academic-section-st">🧠 Machine Learning Integration</div>
+        <div class="academic-p-st" style="text-indent: 0px;">
+          Features a dual-layer pipeline utilizing Scikit-Learn polynomial regression for predictive forecasting to 2060 and Random Forest classification for systemic tipping point boundary mapping.
+        </div>
+
       </div>
     </div>
     """, unsafe_allow_html=True)
-    st.latex(r"B_\lambda(\lambda, T) = \frac{2hc^2}{\lambda^5 \left( e^{ \frac{hc}{\lambda k_B T} } - 1 \right)}")
 # =============================================================================
 # --- 6. ABSOLUTE LAST LINE OF APP.PY (GUARANTEED EXECUTING IN BOTH STATES) ---
 # =============================================================================
