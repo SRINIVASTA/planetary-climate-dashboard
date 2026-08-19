@@ -256,24 +256,22 @@ with st.expander("Read Full Peer-Reviewed Manuscript Specification"):
     drives immediate physical consequences across non-linear environmental feedbacks and structural 
     tipping point decision boundaries.
     """)
-     # 🌐 EMBEDDED MAIN NOAA FEDERAL PORTAL
+# 🌐 FIXED PORTAL ENTRY REDIRECTION LINK
     st.subheader("🌐 Live Data Source: National Oceanic and Atmospheric Administration")
     st.write("""
     The telemetric baseline used by this simulator hooks directly into the global monitoring arrays 
-    managed by the United States federal instrumentation centers. Below is the official central web portal 
-    streamed straight from the federal environment network servers:
+    managed by the United States federal instrumentation centers. Due to automated federal server 
+    framing security restrictions, you can access the central live telemetric portal via the link below:
     """)
     
-    # Safely injects the main NOAA portal page as a responsive widget container
-    st.components.v1.iframe(
-        src="https://www.noaa.gov/",
-
-        height=600, 
-        scrolling=True
+    # Renders a sleek clickable verification button linking to the source context
+    st.link_button(
+        "Open Official Live NOAA Web Portal", 
+        "https://www.noaa.gov/",
+        type="primary"
     )
     
-    st.markdown("---")
-    
+    st.markdown("---")    
    
     
     st.header("📐 The Physics Under the Hood: Mathematical Blueprint")
